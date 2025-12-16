@@ -25,15 +25,21 @@ connectDB();
 const server = express();
 
 //PERMITIR CONEXIONES
+const whitelist = [
+  "http://localhost:5173",
+  "https://rest-apis-typescript-frontend-sable.vercel.app",
+];
+
 const corsOptions: CorsOptions = {
-  origin: function (origin, callback) {
-    if (!origin || origin === process.env.FRONTEND_URL) {
+  origin: (origin, callback) => {
+    if (!origin || whitelist.includes(origin)) {
       callback(null, true);
     } else {
-      callback(new Error("Error de CORS"));
+      callback(new Error("Not allowed by CORS"));
     }
   },
 };
+
 server.use(cors(corsOptions));
 
 //LEER DATOS DE FORMULARIOS
