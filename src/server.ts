@@ -30,6 +30,7 @@ const server = express();
 const whitelist = [
   "http://localhost:5173",
   "https://rest-apis-typescript-frontend-sable.vercel.app",
+  "https://rest-apis-typescript-frontend-2edlte5i5.vercel.app",
 ];
 
 const corsOptions: CorsOptions = {
