@@ -11,10 +11,12 @@ import db from "./config/db";
 export async function connectDB() {
   try {
     await db.authenticate();
-    db.sync();
     console.log(colors.magenta("Conexion exitosa a la base de datos"));
+
+    await db.sync();
+    console.log(colors.cyan("Tablas sincronizadas"));
   } catch (error) {
-    //console.log(error);
+    console.log(error);
     console.log(colors.red.bold("Hubo un error al conectar a la DB"));
   }
 }
