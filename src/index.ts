@@ -1,5 +1,6 @@
 import colors from "colors";
 import server from "./server";
+import "reflect-metadata";
 
 const port = process.env.PORT || 4000;
 
